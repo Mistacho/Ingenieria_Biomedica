@@ -1,5 +1,4 @@
 # Ingenieria_Biomedica
-___________________________________
 
 ## Programación Básica
 
