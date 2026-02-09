@@ -39,26 +39,28 @@ Autor: David Aznar Tornero
 Versión: 1.0.0
 Fecha: 2026-02-09
 """
+try:
+    #Declaramos todas las preguntas que hay que hacerle al usuario
+    nombre = input("Introduzca su nombre")
+    edad = int(input("Introduzca su edad"))
+    estudiante = input("Eres estudiante (Si/No)")
+    dia_semana = input("Introduzca el dia de la semana")
+    saldo = float(input("Introduzca el saldo (euros)"))
+    precio = 6.0
 
-#Declaramos todas las preguntas que hay que hacerle al usuario
-nombre = input("Introduzca su nombre")
-edad = int(input("Introduzca su edad"))
-estudiante = input("Eres estudiante (Si/No)")
-dia_semana = input("Introduzca el dia de la semana")
-saldo = float(input("Introduzca el saldo (euros)"))
-precio = 6.0
 
+    if(edad >= 16):
+        if(estudiante == "Si" and (dia_semana == "Sabado" or dia_semana == "Domingo")):
+            precio = 4.0
 
-if(edad >= 16):
-    if(estudiante == "Si" and (dia_semana == "Sabado" or dia_semana == "Domingo")):
-        precio = 4.0
+        if(saldo > precio):
+            saldo_restante = saldo - precio
+            print("Acceso permitido. Bienvenido/a, " + nombre + ". Saldo restante: " + saldo_restante + " €.")
+        else:
+            print("Saldo insuficiente. Necesitas " + precio + " € y tienes " + saldo + " €.")
 
-    if(saldo > precio):
-        saldo_restante = saldo - precio
-        print("Acceso permitido. Bienvenido/a, " + nombre + ". Saldo restante: " + saldo_restante + " €.")
     else:
-        print("Saldo insuficiente. Necesitas " + precio + " € y tienes " + saldo + " €.")
+        print("Lo siento, " + nombre +  " no eres mayor de 16 años")
 
-else:
-    print("Lo siento, " + nombre +  " no eres mayor de 16 años")
-
+except ValueError:
+    print("Error, ha introducido valores que no corresponden")
