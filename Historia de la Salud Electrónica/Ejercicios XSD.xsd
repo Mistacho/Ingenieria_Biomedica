@@ -1,0 +1,66 @@
+<!-- EJERCICIO 1_ELEMENTOS_SIMPLES
+<?xml version="1.0"?>
+<libro>
+    <titulo>El Quijote</titulo>
+    <autor>Miguel de Cervantes</autor>
+    <paginas>863</paginas>
+    <precio>19.95</precio>
+    <fecha_publicacion>1605-01-16</fecha_publicacion>
+    <disponible>true</disponible>
+</libro>
+ -->
+
+<?xsd version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+ <xs:element name = "libro">
+    <xs:complexType>
+        <xs:sequence>
+            <xs:element name = "titulo" type = "xs:string"/>
+            <xs:element name ="autor" type = "xs:string"/>
+            <xs:element name ="paginas" type = "xs:integer"/>
+            <xs:element name ="precio" type = "xs:decimal"/>
+            <xs:element name ="fecha_publicacion" type = "xs:date"/>
+            <xs:element name ="disponible" type = "xs:boolean"/>
+        </xs:sequence>
+    </xs:complexType>
+ </xs:element>
+
+</xs:schema>
+
+<!-- EJERCICIO 2
+<?xml version="1.0"?>
+<curso codigo="INF101" nivel="basico">
+    <nombre idioma="es">Programación</nombre>
+    <creditos>6</creditos>
+</curso>
+
+El atributo codigo es obligatorio
+El atributo nivel es opcional y su valor por defecto es "medio"
+El atributo idioma es opcional
+-->
+
+<?xsd version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    
+    <xs:element name="curso">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name = "nombre">
+                    <xs:complexType>
+                        <xs:simpleContent>
+                            <xs:extension base="xs:string">
+                                <xs:attribute name = "idioma" type = "xs:string" use = "optional"/>
+                            </xs:extension>
+                        </xs:simpleContent>
+                    </xs:complexType>
+                </xs:element>
+                <xs:element name = "creditos" type = "xs:integer"/>
+            </xs:sequence>
+            <xs:attribute name = "codigo" type = "xs:string" use = "required"/>
+            <xs:attribute name = "nivel" type = "xs:string" use = "optional" default = "medio"/>
+        </xs:complexType>
+    </xs:element>
+
+
+</xs:schema>
