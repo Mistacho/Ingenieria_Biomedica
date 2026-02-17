@@ -1,8 +1,8 @@
 #apt-get install python3-lxml
 from lxml import etree
 
-xFileName = "ejemplo.xml"
-sFileName = "modelo.xsd"
+xFileName = "Historia de la Salud Electrónica/P1_practica/ejemplo.xml"
+sFileName = "Historia de la Salud Electrónica/P1_practica/ejemplo.xsd"
 
 try:
     xDoc = etree.parse(xFileName)

@@ -1,0 +1,55 @@
+<?xml version = "1.0"?>
+<xs:schema  version = "1.0"
+            xmlns:xs = "http://www.w3.org/2001/XMLSchema"
+            elementFormDefault="qualified">
+
+    <xs:element name = "paciente">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name = "nombre" type = "xs:string"/>
+                <xs:element name = "apellidos" type = "xs:string"/>
+                <xs:element name = "sexo" type = "typeSex"/>
+                <xs:element name = "anamnesis">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name = "cita" minOccurs="1" maxOccurs="10">
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name = "peso" type = "xs:integer"/>
+                                        <xs:element name = "talla" type = "xs:integer"/>
+                                        <xs:element name = "observaciones" minOccurs = "0">
+                                             <xs:complexType mixed = "true">
+                                                <xs:attribute name = "lang" type = "typeLan" use = "required"/>
+                                             </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+
+
+
+
+
+    <xs:simpleType name = "typeSex">
+        <xs:restriction base = "xs:string">
+            <xs:enumeration value="M"/>
+            <xs:enumeration value="H"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="typeLan">
+        <xs:restriction base = "xs:string">
+            <xs:enumeration value = "en"/>
+            <xs:enumeration value="es"/>
+            <xs:enumeration value="val"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>
